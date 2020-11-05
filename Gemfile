@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
+gem 'jquery-rails'
 
 
 
