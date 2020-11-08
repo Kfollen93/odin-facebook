@@ -15,6 +15,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Hide Simple Form's required "*" asteriks
+abbr[title="required"] {
+  display: none;
+}
 
 #wrapper {
   width: 100%;
@@ -23,4 +27,13 @@
   display: flex;
   align-items: right;
   justify-content: right;
+}
+
+body {
+  background: url(asset_path("home.jpg")) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
