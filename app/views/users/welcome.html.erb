@@ -1,0 +1,40 @@
+<!-- Sign In is from Devise View -->
+
+<div class="container" style="padding-top: 150px;">
+  <div class="row">
+    <div class="col">
+    <div class="title" style="font-size: 70px; font-weight: bold;">
+      OdinBook <br>
+      <div class="title" style="font-size: 30px; font-weight: bold;">A place to connect with friends and family. </div>
+    </div>
+    </div>
+    <div class="col">
+      <h2>Sign In</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Sign In" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
