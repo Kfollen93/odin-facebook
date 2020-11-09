@@ -5,12 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- This stylesheet_link_tag causes issue with navbar, but without it can't add background image -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
-
-<!-- With this javasscript_tag my navbar is wonky open/close, but without this my signout delete request doesn't work,
-and instead it submits a :get request -->
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
       
     <title>OdinFacebook</title>
     <%= csrf_meta_tags %>
@@ -18,33 +14,7 @@ and instead it submits a :get request -->
 
   </head>
   <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <button class="btn btn-outline-primary" type="button"> <%= link_to "OdinBook", root_path %> </button> 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-
-<ul class="navbar-nav ml-auto">
-  <li class="nav-item">
-    <% if user_signed_in? %>
-      <button class="btn btn-outline-primary" type="button">  <%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </button>
-    <% else %>
-       <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign In", new_user_session_path %> </button>
-       <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign Up", new_user_registration_path %> </button>
-    <% end %>
-  </li>
-</ul>
-
-
-  </div>
-</nav>
+  <%= render "shared/navbar" %>
 
     <!-- Wrap everything in bootstrap container -->
     <div class="container">
@@ -54,7 +24,7 @@ and instead it submits a :get request -->
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-    <!-- Optional JavaScript -->
+    <!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
