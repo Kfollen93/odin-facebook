@@ -16,8 +16,9 @@
     <% if user_signed_in? %>
       <button class="btn btn-outline-primary" type="button">  <%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </button>
     <% else %>
-       <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign In", new_user_session_path %> </button>
+      <!-- <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign In", new_user_session_path %> </button>
        <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign Up", new_user_registration_path %> </button>
+       -->
     <% end %>
   </li>
 </ul>
