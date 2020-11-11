@@ -37,6 +37,7 @@ gem 'jquery-rails'
 # Added for js compatability with new bootstrap
 gem 'mini_racer'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
+gem 'faker', '~> 2.14'
 
 
 
