@@ -1,1 +1,21 @@
-<%= User.all.collect(&:name) %> 
+<!-- The Users Index page lists all users and buttons for sending Friend Requests
+ to those who are not already friends or who don’t already have a pending request -->
+<div class="title">
+  <h2> Find Friends to Connect with Here</h2>
+
+
+
+<%= simple_form_for(:list_of_friends, method: :get, url: new_friend_request_path) do |f| %>
+  <% @users.each do |user| %>
+    <div class="form-group row">
+      <div class="col">
+        <%= user.name %>
+      </div>
+      <div class="col">
+      <!-- Need to figure out what I'm submitting for a friend request -->
+        <button class="btn btn-primary" type="button"> <%= f.button :submit, 'Send Friend Request' %> </button>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
