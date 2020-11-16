@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <button class="btn btn-outline-primary" type="button"> <%= link_to "OdinBook", root_path %> </button> 
+  <%= link_to "OdinBook", users_path, class: "btn btn-primary" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,14 +8,17 @@
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only"></span></a>
       <a class="nav-item nav-link" href="#">Features</a>
       <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      <% if user_signed_in? %>
+        <%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active" %>
+      <% end %>
     </div>
+
 
 <ul class="navbar-nav ml-auto">
   <li class="nav-item">
     <% if user_signed_in? %>
       Signed in as <%= current_user.name %>. Not you?
-      <button class="btn btn-outline-primary" type="button">  <%= link_to("Sign Out", destroy_user_session_path, method: :delete) %> </button>
+      <%= link_to("Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary") %>
     <% else %>
       <!-- <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign In", new_user_session_path %> </button>
        <button class="btn btn-outline-primary" type="button">  <%= link_to "Sign Up", new_user_registration_path %> </button>
