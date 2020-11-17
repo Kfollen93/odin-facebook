@@ -16,8 +16,11 @@
 
             <div class="profile-header-info">
                 <h4 class="m-t-sm"><%= current_user.name %></h4>
-                <p class="m-b-sm">UXUI + Frontend Developer</p>
-                <a href="#" class="btn btn-xs btn-primary mb-3">Edit Profile</a>
+                <% if current_user.name == current_user.name %>
+                  <a href="#" class="btn btn-xs btn-primary mb-3">Edit Picture</a>
+                <% else %>
+                  <a href="#" class="btn btn-xs btn-primary mb-3">Add Friend</a>
+                <% end %>
             </div>
         </div>
 
@@ -72,108 +75,13 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
-                        <table class="table table-profile">
-                            <thead>
-                                <tr>
-                                    <th colspan="2">CONTACT INFORMATION</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="field">Mobile Phones</td>
-                                    <td class="value">
-                                        +44 7700 900860
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Email</td>
-                                    <td class="value">
-                                        admin@infinite.com
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Facebook</td>
-                                    <td class="value">
-                                        http://facebook.com/infinite.admin
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Website</td>
-                                    <td class="value">
-                                        http://seantheme.com
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Address</td>
-                                    <td class="value">
-                                        Twitter, Inc. <a href="#" class="m-l-10">Edit</a><br />
-                                        1355 Market Street, Suite 900<br />
-                                        San Francisco, CA 94103
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table table-profile">
-                            <thead>
-                                <tr>
-                                    <th colspan="2">BASIC INFORMATION</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="field">Birth of Date</td>
-                                    <td class="value">
-                                        November 4, 1989
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Gender</td>
-                                    <td class="value">
-                                        Male
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Facebook</td>
-                                    <td class="value">
-                                        http://facebook.com/infinite.admin
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="field">Website</td>
-                                    <td class="value">
-                                        http://seantheme.com
-                                        <a href="#" class="m-l-10">Edit</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        </table> 
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4 hidden-xs hidden-sm">
                 <ul class="profile-info-list">
                     <li class="title">FRIEND LIST (9)</li>
-                    <li class="img-list">
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" /></a>
-                        <a href="#" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" /></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
