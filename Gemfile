@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+gem 'aws-sdk-s3', '~> 1.84', '>= 1.84.1'
+gem 'active_storage_validations', '~> 0.9.0'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap', '~> 5.0.0.alpha2'
