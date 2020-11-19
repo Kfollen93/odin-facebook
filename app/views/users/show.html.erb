@@ -1,5 +1,5 @@
 <div class="title">
-  <h2> Profile </h2>
+  <h2> <%= current_user.name %> </h2>
 </div>
 
 <div class="container">
@@ -10,17 +10,46 @@
         <div class="profile-header-content">
             <div class="profile-header-img">
             
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
-                </div>
-            </div>
+            <%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-            <div class="profile-header-info">
-                <h4 class="m-t-sm"><%= current_user.name %></h4>
-                <% if current_user.name == current_user.name %>
-                  <a href="#" class="btn btn-xs btn-primary mb-3">Edit Picture</a>
-                <% else %>
-                  <a href="#" class="btn btn-xs btn-primary mb-3">Add Friend</a>
-                <% end %>
-            </div>
-        </div>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
+  <% end %>
+
+    <div class="form-group">
+    <% if @user.profile_picture.attached? && @user.profile_picture.representable? %>
+      <%= image_tag @user.profile_picture.variant(resize: '500x500').processed %>
+      <div class="upload-hider-labels">
+      <%= link_to '#', class: 'replace-upload' do %>
+        Replace Current Image
+        <% end %>
+        <span class="separator-bar">|</span>
+          <%= link_to 'Remove Image without replacing',
+                      delete_image_user_url(image_id: @user.profile_picture.id),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' },
+                      class: 'remove-upload'
+          %>
+      </div>
+      <% else %>
+        <div class="profile-picture no-profile-picture"></div>
+      <% end %>
+
+      <div class="upload-hider-fields">
+        <%= form.file_field :profile_picture %>
+      </div>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+                
