@@ -30,13 +30,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 #gem 'mini_magick', '~> 4.8'
 gem 'image_processing', '~> 1.12', '>= 1.12.1'
-gem 'aws-sdk-s3', '~> 1.84', '>= 1.84.1'
+gem 'aws-sdk-s3', '~> 1.84', '>= 1.84.1', require: false
 gem 'active_storage_validations', '~> 0.9.0'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap', '~> 5.0.0.alpha2'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
+
 # Added for js compatability with new bootstrap
 gem 'mini_racer'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
