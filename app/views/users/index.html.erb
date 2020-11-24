@@ -9,7 +9,7 @@
   <% @users.each do |user| %>
     <div class="form-group row">
       <div class="col">
-        <%= user.name %>
+        <%= link_to user.name, user_path(user) %>
       </div>
       <div class="col">
       <!-- Need to figure out what I'm submitting for a friend request -->
