@@ -46,7 +46,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Update Profile", class: 'btn btn-primary' %>
+    <%= form.submit "Edit Profile", class: 'btn btn-primary' %>
   </div>
 
   <% else %> <!-- This will need to eventually be an elsif not already friend, with the else
@@ -55,5 +55,18 @@
       <%= form.submit "Add Friend", class: 'btn btn-primary' %>
     </div>
   <% end %>
+
+  <%= simple_form_for @user do |f| %>
+    <% if @user.errors.any? %>
+    <h2>The following errors prevented the about section from saving:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+    <%= f.input :about %>
+    <%= f.button :submit, "Submit About", class: 'btn btn-primary' %>
+<% end %>
 
 <% end %>
