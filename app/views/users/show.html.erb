@@ -27,10 +27,6 @@
     <% if @user.profile_picture.attached? && @user.profile_picture.representable? %>
       <%= image_tag @user.profile_picture.variant(resize: '500x500').processed %>
       <div class="upload-hider-labels">
-      <%= link_to '#', class: 'replace-upload' do %>
-        Replace Current Image
-        <% end %>
-        <span class="separator-bar">|</span>
           <%= link_to 'Remove Image without replacing',
                       delete_image_user_url(image_id: @user.profile_picture.id),
                       method: :delete,
