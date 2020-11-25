@@ -1,0 +1,13 @@
+<h1>Edit Profile</h1>
+ <%= simple_form_for @user do |f| %>
+    <% if @user.errors.any? %>
+    <h2>The following errors prevented the about section from saving:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg|%>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+    <%= f.input :about %>
+    <%= f.button :submit, "Submit About", class: 'btn btn-primary' %>
+<% end %>

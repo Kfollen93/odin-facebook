@@ -66,7 +66,8 @@
     </ul>
   <% end %>
     <%= f.input :about %>
-    <%= f.button :submit, "Submit About", class: 'btn btn-primary' %>
 <% end %>
 
 <% end %>
+
+<%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary' %>
