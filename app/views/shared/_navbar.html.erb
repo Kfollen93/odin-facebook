@@ -6,9 +6,8 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only"></span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
       <% if user_signed_in? %>
+        <%= link_to "Pending Friend Requests (.count)", user_path(current_user), class: "nav-item nav-link active" %>
         <%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active" %>
       <% end %>
     </div>
