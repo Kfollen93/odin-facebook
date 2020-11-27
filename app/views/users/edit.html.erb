@@ -1,13 +1,50 @@
 <h1>Edit Profile</h1>
- <%= simple_form_for @user do |f| %>
-    <% if @user.errors.any? %>
-    <h2>The following errors prevented the about section from saving:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg|%>
-    <li><%= msg %></li>
-    <% end %>
-    </ul>
+
+<div class="container">
+<div id="content" class="content p-0">
+    <div class="profile-header">
+        <div class="profile-header-cover"></div>
+        <div class="title">
+        <div class="profile-header-content">
+            <div class="profile-header-img">
+            
+            <%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-    <%= f.input :about %>
-    <%= f.button :submit, "Submit About", class: 'btn btn-primary' %>
+
+<div class="form-group">
+    <% if @user.profile_picture.attached? && @user.profile_picture.representable? %>
+      <%= image_tag @user.profile_picture.variant(resize: '500x500').processed %>
+      <div class="upload-hider-labels">
+          <%= link_to 'Remove Image without replacing',
+                      delete_image_user_url(image_id: @user.profile_picture.id),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' },
+                      class: 'remove-upload'
+          %>
+      </div>
+      
+      <% else %>
+        <div class="profile-picture no-profile-picture"></div>
+      <% end %>
+      <div class="upload-hider-fields">
+        <%= form.file_field :profile_picture %>
+      </div>
+
+      <%= form.text_area :about %>
+
+    <div class="actions">
+      <%= form.submit "Update Profile", class: 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>
+

@@ -22,52 +22,25 @@
       </ul>
     </div>
   <% end %>
-  
-<% if current_user == @user %>
 
-    <div class="form-group">
+      <div class="form-group">
     <% if @user.profile_picture.attached? && @user.profile_picture.representable? %>
       <%= image_tag @user.profile_picture.variant(resize: '500x500').processed %>
-      <div class="upload-hider-labels">
-          <%= link_to 'Remove Image without replacing',
-                      delete_image_user_url(image_id: @user.profile_picture.id),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' },
-                      class: 'remove-upload'
-          %>
-      </div>
-      <% else %>
-        <div class="profile-picture no-profile-picture"></div>
-      <% end %>
-
-      <div class="upload-hider-fields">
-        <%= form.file_field :profile_picture %>
-      </div>
+    <% else %>
+      <div class="profile-picture no-profile-picture"></div>
+    <% end %>
   </div>
 
+     <%= @user.about %>
+  
+<% if current_user == @user %>
   <div class="actions">
-    <%= form.submit "Edit Profile", class: 'btn btn-primary' %>
+    <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'btn btn-primary' %>
   </div>
-
   <% else %> <!-- This will need to eventually be an elsif not already friend, with the else
             option being to unfriend.  -->
     <div class="actions">
       <%= form.submit "Add Friend", class: 'btn btn-primary' %>
     </div>
   <% end %>
-
-  <%= simple_form_for @user do |f| %>
-    <% if @user.errors.any? %>
-    <h2>The following errors prevented the about section from saving:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg|%>
-    <li><%= msg %></li>
-    <% end %>
-    </ul>
-  <% end %>
-    <%= f.input :about %>
 <% end %>
-
-<% end %>
-
-<%= link_to 'Edit', edit_user_path(current_user), class: 'btn btn-primary' %>
