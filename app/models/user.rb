@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :friendships, ->(user) { where("friend_a_id = ? OR friend_b_id = ?", user.id, user.id) }
   has_many :friends, through: :friendships
 
+  has_many :posts
+
   has_one_attached :profile_picture, dependent: :destroy
     validates :profile_picture, content_type: [:png, :jpg, :jpeg]
 end
