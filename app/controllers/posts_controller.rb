@@ -17,6 +17,7 @@ class PostsController < ApplicationController
       redirect to @post
     else
       render 'new'
+    end
   end
 
   private
