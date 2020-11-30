@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all #this will need to become current_user's posts and their friends only.
+    @posts = Post.all.order("created_at DESC") #this will need to become current_user's posts and their friends only.
   end
 
   def show
@@ -12,11 +12,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+
     if @post.save
-      redirect to @post
+        redirect_to posts_path
     else
-      render 'new'
+        flash[:notice] = "Something went wrong...please try submitting again."
+        redirect_to posts_path
     end
   end
 
