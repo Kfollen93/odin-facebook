@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <%= link_to "OdinBook", users_path, class: "btn btn-primary" %>
+  <%= link_to "OdinBook", posts_path, class: "btn btn-primary" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-        <%= link_to "Timeline", posts_path(current_user), class: "nav-item nav-link active" %>
+        <%= link_to "Connect", users_path, class: "nav-item nav-link active" %>
       <% if user_signed_in? %>
         <%= link_to "Pending Friend Requests (.count)", user_path(current_user), class: "nav-item nav-link active" %>
         <%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active" %>
