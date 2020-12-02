@@ -2,24 +2,16 @@
   <h2> Timeline </h2>
 </div>
 
-<!-- Below is for submitting a new post -->
+<!-- Below is for submitting a new post form -->
 <div class="container">
-    <div class="panel">
-      <div class="panel-heading">
-        <h3 class="panel-title">Activity Feed</h3>
-      </div>
-        <div class="panel-content panel-activity">
-          <%= simple_form_for :post, :html => { :class => 'panel-activity__status' } do |f| %>
-            <div class="form-control">
-              <%= f.input :content, label: false, placeholder: "Enter your thoughts...", as: :text %>
-            </div>
-              <div class="actions">
-                <%= f.button :submit, 'Create Post', class: "btn btn-primary"  %>
-              </div>
-          <% end %>
-
+  <div class="panel">
+    <div class="panel-heading">
+      <h3 class="panel-title">Activity Feed</h3>
+    </div>
+      <div class="panel-content panel-activity">
+        <%= render 'form' %>
+        
               <!-- Below is for displaying the new posts -->
-              
               <ul class="panel-activity__list">
                   <% @posts.each do |post| %>
                   <li>
@@ -40,7 +32,7 @@
                       </div>
                   </li>
                   <% end %>
-                  
+
                   <!-- Static posts below for examples -->
                   <li>
                       <i class="activity__list__icon fa fa-question-circle-o"></i>

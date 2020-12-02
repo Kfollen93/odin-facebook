@@ -1,11 +1,8 @@
-<div class="section">
-<%= simple_form_for :post do |f| %>
-  <div class="field">
-    <div class="control">
-      <%= f.input :content  %>
-    </div>
+<%= simple_form_for :post, :html => { :class => 'panel-activity__status' } do |f| %>
+  <div class="form-control">
+    <%= f.input :content, label: false, placeholder: "Enter your thoughts...", as: :text %>
   </div>
-  <%= f.button :submit, 'Create Post', class: "btn btn-primary"  %>
+    <div class="actions">
+      <%= f.button :submit, 'Create Post', class: "btn btn-primary"  %>
+    </div>
 <% end %>
-</div>
-<br>
