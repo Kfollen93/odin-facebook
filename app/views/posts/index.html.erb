@@ -10,7 +10,7 @@
     </div>
       <div class="panel-content panel-activity">
         <%= render 'form' %>
-        
+
               <!-- Below is for displaying the new posts -->
               <ul class="panel-activity__list">
                   <% @posts.each do |post| %>
@@ -28,7 +28,7 @@
                       <div class="activity__list__footer">
                         <a href="#"> <i class="fa fa-thumbs-up"></i>123</a>
                         <a href="#"> <i class="fa fa-comments"></i>23</a>
-                        <span> <i class="fa fa-clock"></i>2 hours ago</span>
+                        <span> <i class="fa fa-clock"></i><%= time_ago_in_words post.created_at %></span>
                       </div>
                   </li>
                   <% end %>
