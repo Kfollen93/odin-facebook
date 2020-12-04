@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
         redirect_to posts_path
     else
-        flash[:notice] = "Something went wrong...please try submitting again."
+        flash[:error] = "Something went wrong...please try submitting again."
         redirect_to posts_path
     end
   end

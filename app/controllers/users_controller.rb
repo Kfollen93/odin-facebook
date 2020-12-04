@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-     flash[:notice] = "User about section was successfully created"
+     flash[:success] = "User about section was successfully created"
      redirect_to user_path(@user)
     else
      render 'new'
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       image.purge
       redirect_back(fallback_location: request.referer)
     else
-      redirect_to root_url, notice: "You can't do that!"
+      redirect_to root_url, alert: "You can't do that!"
     end
   end
 
