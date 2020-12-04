@@ -20,7 +20,11 @@
     <!-- Wrap everything in bootstrap container -->
     <div class="container">
       <br>
-      <%= render 'layouts/flash' %>
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+          <%= value %>
+        </div>
+      <% end %>
     <%= yield %>
 
     <!-- Bootstrap JavaScript -->
