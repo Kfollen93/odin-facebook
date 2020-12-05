@@ -16,10 +16,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-        redirect_to posts_path
+      redirect_to posts_path
     else
-        flash[:error] = "Something went wrong...please try submitting again."
-        redirect_to posts_path
+      flash[:error] = "Something went wrong...please try submitting again."
+      redirect_to posts_path
     end
   end
 

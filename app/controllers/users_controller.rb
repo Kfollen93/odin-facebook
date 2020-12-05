@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+    # this may not work, :source on user model :has_many friends with '||' might not work.
+    # @friends = current_user.friends
   end
 
   def show
@@ -16,10 +18,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-     flash[:success] = "User about section was successfully created"
-     redirect_to user_path(@user)
+      flash[:success] = "User about section was successfully created"
+      redirect_to user_path(@user)
     else
-     render 'new'
+      render 'new'
     end
   end  
 
