@@ -7,7 +7,7 @@
     <div class="navbar-nav">
         <%= link_to "Connect", users_path, class: "nav-item nav-link active" %>
       <% if user_signed_in? %>
-        <%= link_to "Pending Friend Requests (.count)", user_path(current_user), class: "nav-item nav-link active" %>
+        <%= link_to "Pending Friend Requests (.count)", friend_requests_path, class: "nav-item nav-link active" %>
         <%= link_to "Profile", user_path(current_user), class: "nav-item nav-link active" %>
       <% end %>
     </div>

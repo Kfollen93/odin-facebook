@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_235032) do
+ActiveRecord::Schema.define(version: 2020_12_06_033241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,24 +34,6 @@ ActiveRecord::Schema.define(version: 2020_11_29_235032) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "friend_requests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "requestor_id"
-    t.bigint "receiver_id"
-    t.index ["receiver_id"], name: "index_friend_requests_on_receiver_id"
-    t.index ["requestor_id"], name: "index_friend_requests_on_requestor_id"
-  end
-
-  create_table "friendships", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "friend_a_id"
-    t.bigint "friend_b_id"
-    t.index ["friend_a_id"], name: "index_friendships_on_friend_a_id"
-    t.index ["friend_b_id"], name: "index_friendships_on_friend_b_id"
   end
 
   create_table "posts", force: :cascade do |t|
