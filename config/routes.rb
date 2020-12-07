@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 devise_for :users
-resources :friend_requests, :friendships, :posts
+resources :comments, :posts
 
 resources :users, only: [:index, :show, :edit, :update] do 
   member do

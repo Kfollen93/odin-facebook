@@ -3,7 +3,7 @@
 <div class="title">
   <h2> Find Friends to Connect with Here</h2>
 
-<%= simple_form_for(:list_of_friends, method: :get, url: new_friend_request_path) do |f| %>
+<%= simple_form_for(:list_of_friends, method: :get) do |f| %>
   <% @users.each do |user| %>
     <div class="form-group row">
       <div class="col">
