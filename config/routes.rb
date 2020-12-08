@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 devise_for :users
-resources :comments, :posts
+resources :posts, :comments
 
 resources :users, only: [:index, :show, :edit, :update] do 
   member do
