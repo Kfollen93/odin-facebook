@@ -10,7 +10,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse">
           <div class="panel-body">
-              <%= form_for([@post, @post.comments.build]) do |f| %>
+              <%= form_for([post, post.comments.build]) do |f| %>
 
                 <div class="form-group">
                   <%= f.label :body %>
