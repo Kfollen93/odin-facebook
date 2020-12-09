@@ -25,10 +25,10 @@
                         <%= post.content %>
                       </p>
                         <h3>Add a Comment:</h3>
-                        <% post.comments.each do |comment|%>
+                        <% post.comments.each do |comment| %>
                         <p><%= comment.body %></p>
                         <% end %>
-                        <%= render 'comments/form' %>
+                        <%= render 'comments/form', :post => post %>
                       </div>
                       <div class="activity__list__footer">
                         <a href="#"> <i class="fa fa-thumbs-up"></i>123</a>
