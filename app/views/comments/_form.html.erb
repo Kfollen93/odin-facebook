@@ -10,11 +10,10 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse">
           <div class="panel-body">
-              <%= form_for([post, post.comments.build]) do |f| %>
+              <%= simple_form_for([post, post.comments.build]) do |f| %>
 
                 <div class="form-group">
-                  <%= f.label :body %>
-                  <%= f.text_area :body, class: 'form-control', required: true %>
+                     <%= f.input :body, label: false, placeholder: "Leave a comment...", as: :text %>
                 </div>
 
                 <%= f.submit class: 'btn btn-primary' %>
