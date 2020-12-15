@@ -1,6 +1,7 @@
 <%= simple_form_for :post, :html => { :class => 'panel-activity__status' } do |f| %>
   <div class="form-control">
     <%= f.input :content, label: false, placeholder: "Enter your thoughts...", as: :text %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
     <div class="actions">
       <%= f.button :submit, 'Create Post', class: "btn btn-primary"  %>
