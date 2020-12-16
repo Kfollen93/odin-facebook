@@ -26,10 +26,10 @@
                       </p>
                         <p><strong>Comments:</strong></p>
                         <% post.comments.each do |comment| %>
-                        <%= link_to comment.user.name, user_path(comment.user) %>:
-                        <%= comment.body %> <br>
+                          <%= link_to comment.user.name, user_path(comment.user) %>:
+                          <%= comment.body %> <br>
                         <% end %>
-                        <%= render 'comments/form', :post => post %>
+                          <%= render 'comments/form', :post => post %>
                       </div>
                       <div class="activity__list__footer">
                         <a href="#"> <i class="fa fa-thumbs-up"></i>123</a>
