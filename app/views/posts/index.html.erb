@@ -26,8 +26,8 @@
                       </p>
                         <p><strong>Comments:</strong></p>
                         <% post.comments.each do |comment| %>
-                        <p><%= comment.user.name %></p>
-                        <p><%= comment.body %></p>
+                        <%= link_to comment.user.name, user_path(comment.user) %>:
+                        <%= comment.body %> <br>
                         <% end %>
                         <%= render 'comments/form', :post => post %>
                       </div>
