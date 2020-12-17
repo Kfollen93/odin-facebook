@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:comments).all.order("created_at DESC") #this will need to become current_user's posts and their friends only.
     @comments = Comment.all.order("created_at DESC")
+    @user = current_user
   end
 
   def show
